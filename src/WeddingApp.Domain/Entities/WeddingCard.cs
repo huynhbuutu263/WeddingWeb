@@ -5,12 +5,25 @@ namespace WeddingApp.Domain.Entities;
 
 public class WeddingCard : BaseEntity
 {
-    // COPILOT TASK:
-    // 1. Add 'Title' (string)
-    // 2. Add 'SlugUrl' (string) - This will be unique in the DB later.
-    // 3. Add 'EventDate' (DateTime)
-    // 4. Add 'TemplateId' (Guid) and the navigation property for 'Template'
-    // 5. Create a constructor that strictly dictates these values.
+    public string Title { get; private set; }
+    public string SlugUrl { get; private set; }
+    public DateTime EventDate { get; private set; }
+    public Guid TemplateId { get; private set; }
+    public Template Template { get; private set; }
     
-    private WeddingCard() { } 
+    private WeddingCard() { }
+    
+    public WeddingCard(string title, string slugUrl, DateTime eventDate, Guid templateId)
+    {
+        if (string.IsNullOrWhiteSpace(title))
+            throw new ArgumentException("Title cannot be empty.", nameof(title));
+        
+        if (string.IsNullOrWhiteSpace(slugUrl))
+            throw new ArgumentException("SlugUrl cannot be empty.", nameof(slugUrl));
+        
+        Title = title;
+        SlugUrl = slugUrl;
+        EventDate = eventDate;
+        TemplateId = templateId;
+    }
 }
