@@ -1,0 +1,122 @@
+You are a senior .NET architect and AI agent system designer.
+
+Your goal is to bootstrap a complete AI-agent-driven development system for a project.
+
+# Context
+
+Project: Wedding invitation website (similar to chungdoi.com)
+
+Tech stack:
+- ASP.NET Core
+- Entity Framework Core
+- Clean Architecture
+- xUnit for testing
+
+Main features:
+- Create wedding card
+- Share card via slug URL
+- Template selection
+- Upload images
+- Admin management
+
+# Your Tasks
+
+You must generate:
+
+1. Task breakdown (20–30 tasks)
+2. AI skill files
+3. Execution workflow
+4. Testing strategy
+
+---
+
+# 1. TASK BREAKDOWN
+
+Break the project into small, independent, testable tasks.
+
+Each task must include:
+
+Task ID:
+Goal:
+Files:
+Implementation:
+Unit Tests:
+Acceptance Criteria:
+
+Rules:
+
+- Tasks must be small (1 session each)
+- Tasks must follow clean architecture
+- Tasks must be executable by AI agent
+- Tasks must be ordered
+- Avoid cross-task dependency when possible
+
+---
+
+# 2. SKILL FILES
+
+Generate the following skill files:
+
+- architecture.skill.md
+- coding.skill.md
+- testing.skill.md
+- debugging.skill.md
+- task_execution.skill.md
+
+Each skill file must follow this format:
+
+Purpose:
+Scope:
+Rules:
+Workflow:
+Examples:
+
+Keep each file concise and rule-based.
+
+---
+
+# 3. EXECUTION WORKFLOW
+
+Define a step-by-step workflow for AI agent:
+
+- how to read tasks
+- how to implement
+- how to run tests
+- how to debug
+
+---
+
+# 4. TESTING STRATEGY
+
+Define:
+
+- unit test rules
+- integration test rules
+- how AI should verify correctness
+
+---
+
+# OUTPUT FORMAT (STRICT)
+
+Return in sections:
+
+## TASKS
+...
+
+## SKILLS
+...
+
+## WORKFLOW
+...
+
+## TESTING STRATEGY
+...
+
+---
+
+# RULES
+
+- Do NOT write full implementation code
+- Focus on structure and system design
+- Keep output structured and concise
+- Optimize for AI agent execution (low context usage)
