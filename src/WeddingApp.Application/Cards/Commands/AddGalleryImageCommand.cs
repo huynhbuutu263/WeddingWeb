@@ -12,14 +12,14 @@ public class AddGalleryImageCommandHandler(IAppDbContext context) : IRequestHand
 {
     public async Task Handle(AddGalleryImageCommand request, CancellationToken cancellationToken)
     {
-        var card = await context.WeddingCards
-            .Include(c => c.Images)
-            .FirstOrDefaultAsync(c => c.Id == request.CardId, cancellationToken);
+        var cardExists = await context.WeddingCards
+            .AnyAsync(c => c.Id == request.CardId, cancellationToken);
 
-        if (card is null)
+        if (!cardExists)
             throw new NotFoundException(nameof(WeddingCard), request.CardId);
 
-        card.AddImage(request.ImageUrl);
+        var image = new CardImage(request.CardId, request.ImageUrl);
+        context.CardImages.Add(image);
         await context.SaveChangesAsync(cancellationToken);
     }
 }
