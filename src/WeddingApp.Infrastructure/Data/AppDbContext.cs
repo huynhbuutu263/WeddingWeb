@@ -10,6 +10,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Template> Templates => Set<Template>();
     public DbSet<User> Users => Set<User>();
     public DbSet<Guest> Guests => Set<Guest>();
+    public DbSet<CardImage> CardImages => Set<CardImage>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -18,6 +19,11 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         modelBuilder.Entity<WeddingCard>(entity =>
         {
             entity.HasIndex(e => e.SlugUrl).IsUnique();
+
+            entity.HasMany(e => e.Images)
+                .WithOne()
+                .HasForeignKey(i => i.WeddingCardId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
     }
 }

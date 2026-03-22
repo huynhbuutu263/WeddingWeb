@@ -9,6 +9,7 @@ public interface IAppDbContext
     DbSet<Template> Templates { get; }
     DbSet<User> Users { get; }
     DbSet<Guest> Guests { get; }
+    DbSet<CardImage> CardImages { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
