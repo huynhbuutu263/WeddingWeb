@@ -11,7 +11,7 @@ public class WeddingCard : BaseEntity
     public Guid TemplateId { get; private set; }
     public Template Template { get; private set; }
     
-    private WeddingCard() { }
+    private WeddingCard() { Title = string.Empty; SlugUrl = string.Empty; Template = null!; }
     
     public WeddingCard(string title, string slugUrl, DateTime eventDate, Guid templateId)
     {
@@ -25,5 +25,6 @@ public class WeddingCard : BaseEntity
         SlugUrl = slugUrl;
         EventDate = eventDate;
         TemplateId = templateId;
+        Template = null!; // Populated by EF Core navigation loading
     }
 }
