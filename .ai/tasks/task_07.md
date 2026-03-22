@@ -138,7 +138,7 @@ public static class DependencyInjection
 ```
 
 > **Design Notes:**
-> - `ValidationBehavior` uses the C# primary constructor syntax to inject `IEnumerable<IValidator<TRequest>>`. When no validators are registered for a given request type, EF Core's DI container returns an empty enumerable, so the behavior short-circuits cleanly.
+> - `ValidationBehavior` uses the C# primary constructor syntax to inject `IEnumerable<IValidator<TRequest>>`. When no validators are registered for a given request type, ASP.NET Core's built-in DI container returns an empty enumerable, so the behavior short-circuits cleanly.
 > - All validators in the Application assembly are scanned and registered automatically by `AddValidatorsFromAssembly`, so adding a new `AbstractValidator<TCommand>` requires no manual DI wiring.
 > - `ValidationException.Errors` is keyed by property name, enabling API consumers to receive field-level error messages (e.g., `{ "Title": ["Title is required."] }`).
 > - `NotFoundException` is provided here so the same exception type can be used across all future query handlers without importing Infrastructure.
